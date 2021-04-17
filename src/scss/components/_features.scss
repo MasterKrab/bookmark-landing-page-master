@@ -38,7 +38,6 @@
     max-width: 730px;
     padding-right: 70px;
     padding-left: 40px;
-    padding-bottom: 30px;
     margin: 5rem auto 3rem;
     border-bottom: 1px solid #DDE0E7;
   }
@@ -48,7 +47,6 @@
 
     @media screen and (max-width: 768px) {
       border-bottom: 1px solid #DDE0E7;
-      padding: 20px;
 
 
       &:first-child {
@@ -62,8 +60,12 @@
     background: none;
     cursor: pointer;
     color: c.$grayish-blue;
+    padding: 20px;
+    width: 100%;
 
     @media screen and (min-width: 1024px) {
+      padding: 0 0 30px;
+
       &:hover{
         color: c.$soft-red;
       }
@@ -79,10 +81,6 @@
       background-color: c.$soft-red;
       opacity: 0;
       transition: opacity 0.5s, transform 0.5s;
-
-      @media screen and (min-width: 768px) {
-        bottom: -31px;
-      }
     }
 
     &--active{

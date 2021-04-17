@@ -1,0 +1,23 @@
+@use "../vars/colors" as c;
+
+@mixin text{
+  &__title{
+    color: c.$very-dark-blue;
+    font-weight: 500;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__text{
+    color: c.$grayish-blue;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.1rem;
+    }
+  }
+}

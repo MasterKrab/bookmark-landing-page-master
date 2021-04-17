@@ -1,0 +1,13 @@
+html,
+body{
+  overflow-x: hidden;
+}
+
+body{
+  font-family: Rubik, sans-serif;
+}
+
+.no-scroll{
+  height: 100vh;
+  overflow: hidden;
+}

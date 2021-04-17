@@ -1,0 +1,6 @@
+mixin extension-card(img, navigator, version, url= "#")
+    article.extension-card
+        img.extension-card__logo(src= `./assets/images/${img}` alt=navigator)
+        h4.extension-card__title= `Add to ${navigator}`
+        p.extension-card__text= `Minimum version ${version}`
+        a.extension-card__link(href=url) Add & Install Extension

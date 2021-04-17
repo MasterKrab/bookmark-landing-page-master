@@ -1,0 +1,221 @@
+@use "../abstracts/vars/colors" as c;
+@use "../abstracts/mixins/reset-list" as *;
+@use "../abstracts/mixins/pseudoelement" as *;
+@use "../abstracts/mixins/outline" as *;
+
+.main-header {
+  padding: 2.5rem 1.875rem;
+
+  @media screen and (min-width: 1350px) {
+    padding: 3.125rem;
+  }
+}
+
+.top-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1104px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__logo,
+  &__button{
+    position: relative;
+    z-index: 100000;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__logo--light{
+      .logo-path,
+      .logo-circle{
+        transition: fill 0.5s;
+        fill: #fff;
+      }
+
+      .logo-icon{
+        fill: c.$very-dark-blue;
+      }
+    }
+  }
+
+  &__button{
+    margin-left: auto;
+    height: 15px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
+    &:focus-visible,
+    &:focus{
+      @include outline;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  &__icon{
+    position: relative;
+
+    &,
+    &::before,
+    &::after{
+      width: 18px;
+      height: 3px;
+      background-color: c.$very-dark-blue;
+      transition: transform 0.5s, background-color 0.5s;
+    }
+
+    &::before,
+    &::after{
+      @include pseudo-element;
+      left: 0;
+      top: 6px;
+    }
+
+    &::after{
+      top: -6px;
+      transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
+    }
+
+    &--active{
+      transform: rotate(45deg);
+
+      &,
+      &::before,
+      &::after{
+        background-color: #fff;
+      }
+
+      &::before{
+        transform: rotate(90deg) translateX(-6px);
+      }
+
+      &::after{
+        opacity: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__links {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(c.$very-dark-blue, 0.95);
+      padding: 6.25rem 2.5rem 2.8rem;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+
+      &--hidden,
+      &--active{
+        display: flex;
+      }
+
+      &--hidden{
+        animation: opacity-reverse 1 0.5s forwards;
+      }
+
+      &--active{
+        animation: opacity 1 0.5s;
+      }
+    }
+  }
+}
+
+.menu,
+.social{
+  @include reset-list;
+
+  &__item{
+    color: #fff;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.menu{
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+  }
+
+  &__item{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+
+    @media screen and (max-width: 768px) {
+      border-bottom: 1px solid #4C526C;
+      padding: 25px;
+      font-size: 1.3rem;
+
+      &:first-child{
+        border-top: 1px solid #4C526C;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      color: c.$very-dark-blue;
+      transition: color 0.2s;
+
+      &:hover{
+        color: c.$soft-red;
+      }
+    }
+  }
+
+  &__link--login{
+    @media screen and (max-width: 768px) {
+      margin-top: 25px;
+      padding: 10px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+    }
+
+    @media screen and (min-width: 768px) {
+      color: #fff;
+      background-color: c.$soft-red;
+      border-radius: 0.5rem;
+      padding: 0.6rem 2rem;
+      box-shadow: 0 8px 8px -4px rgba(#000, 0.2);
+      border: 2px solid transparent;
+      transition: background-color 0.2s, color 0.2s;
+
+      &:hover{
+        border-color: c.$soft-red;
+        color: c.$soft-red;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 25px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}

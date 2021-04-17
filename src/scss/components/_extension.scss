@@ -1,0 +1,41 @@
+@use "../abstracts/vars/colors" as c;
+@use "../abstracts/mixins/text" as *;
+
+.extension{
+  text-align: center;
+  padding: 2.5rem 1.5rem 1.5rem;
+  margin-top: 5rem;
+  @include text;
+
+  &__cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    gap: 45px;
+    margin-top: 4rem;
+
+    @media screen and (min-width: 768px) {
+      justify-items: end;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media screen and (min-width: 1024px) {
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    width: 120px;
+    height: 50px;
+    background-color: c.$soft-blue;
+    color: #fff;
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+}

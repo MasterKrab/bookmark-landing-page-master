@@ -1,0 +1,6 @@
+@use "../vars/colors" as c;
+
+@mixin outline{
+  outline: 4px dashed c.$soft-red;
+  outline-offset: 0.25rem;
+}

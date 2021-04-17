@@ -1,0 +1,122 @@
+@use "../abstracts/vars/colors" as c;
+@use "../abstracts/mixins/pseudoelement" as *;
+@use "../abstracts/mixins/box-ps" as *;
+
+.introduction{
+  position: relative;
+  padding-top: 5rem;
+  max-width: 1440px;
+  background-image: url(../../assets/images/illustration-hero.svg);
+  background-repeat: no-repeat;
+  background-size: 310px;
+  background-position: center 10%;
+
+  @media screen and (min-width: 500px) {
+    background-size: 450px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-position: 90% 50px;
+    padding-top: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-size: 580px;
+  }
+
+  &::after{
+    @include box-ps(left ,90px, 35%, 140px, 65%)
+  }
+
+  &,
+  &__card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__card{
+    margin-top: 270px;
+    text-align: center;
+
+    @media screen and (min-width: 500px) {
+      margin-top: 300px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      text-align: start;
+      max-width: 1104px;
+      margin-top: 0;
+      padding-top: 80px;
+      padding-left: 1rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+      padding-left: 0;
+    }
+  }
+
+  &__text{
+    color: c.$grayish-blue;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media screen and (max-width: 1024px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__link{
+    width: 150px;
+    height: 50px;
+    background-color: #F7F7F7;
+    color: c.$very-dark-blue;
+    box-shadow: 0 8px 8px -4px rgba(#000, 0.2);
+    text-decoration: none;
+    display: inline-grid;
+    place-items: center;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-size: 0.9rem;
+
+    @media screen and (min-width: 1024px) {
+      transition: border-color 0.2s;
+      width: 165px;
+
+      &:hover{
+        border-color: c.$very-dark-blue;
+      }
+    }
+
+    &--blue{
+      background-color: c.$soft-blue;
+      color: #fff;
+      margin-right: 15px;
+
+      @media screen and (min-width: 1024px) {
+        transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+        &:hover{
+          border-color: c.$soft-blue;
+          background-color: #F7F7F7;
+          color: c.$soft-blue;
+        }
+      }
+    }
+  }
+}
+
+.title{
+  color: c.$very-dark-blue;
+  font-weight: 500;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 3rem;
+  }
+}

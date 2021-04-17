@@ -1,0 +1,25 @@
+@use "../vars/colors" as c;
+
+@mixin info-link{
+  width: 120px;
+  height: 50px;
+  background-color: c.$soft-blue;
+  color: #fff;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  border: 2px solid transparent;
+
+  @media screen and (min-width: 1024px) {
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: #fff;
+      border-color: c.$soft-blue;
+      color: c.$soft-blue;
+    }
+  }
+}

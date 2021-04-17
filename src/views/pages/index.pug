@@ -1,0 +1,56 @@
+extends ../templates/template
+include ../mixins/extension-card
+include ../mixins/faq
+
+block content
+    article.introduction
+        .introduction__card
+            h1.title
+                |A Simple Bookmark
+                br
+                |Manager
+            p.introduction__text A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.
+            a.introduction__link.introduction__link--blue(href="#") Get it on Chrome
+            a.introduction__link(href="#") Get it on Firefox
+
+    article.features
+        h2.features__title Features
+        p.features__text Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.
+        ul.features-list#features-list
+            li.features-list__item: button.features-list__button.features-list__button--active(data-id="0") Simple Bookmarking
+            li.features-list__item: button.features-list__button(data-id="1") Speedy Searching
+            li.features-list__item: button.features-list__button(data-id="2") Easy Sharing
+        section.feature(aria-live="polite")#feature-result
+
+        template#feature-template
+            img.feature__image
+            .feature__card
+                h3.feature__title
+                p.feature__text
+                a.feature__link(href="#") More Info
+
+    article.extension
+        h2.extension__title Download the extension
+        p.extension__text We’ve got more browsers in the pipeline. Please do let us know if you’ve got a favourite you’d like us to prioritize.
+        .extension__cards
+            +extension-card("logo-chrome.svg", "Chrome", 62)
+            +extension-card("logo-firefox.svg", "Firefox", 55)
+            +extension-card("logo-opera.svg", "Opera", 46)
+
+    article.faqs
+        h2.faqs__title Frequently Asked Questions
+        p.faqs__text Here are some of our FAQs. If you have any other questions you’d like answered please feel free to email us.
+        .faqs__container
+            +faq("What is Bookmark?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunv justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.")
+            +faq("How can I request a new browser?", "Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet.")
+            +faq("Is there a mobile app?", "Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis est pharetra mattis sit amet pharetra purus. Sed  sollicitudin ex et ultricies bibendum.")
+            +faq("What about other Chromium browsers?", "Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida pellentesque non ut velit.")
+        a.faqs__link(href="#") More Info
+
+    article.contact
+        p.contact__text 35,000+ already joined
+        h2.contact__title Stay up-to-date with what we’re doing
+        form.contact__form#form
+            .contact__input(data-error="Email is empty")
+              input.contact__email(name="email", aria-label="Your email", placeholder="Enter your email adress")
+            button.contact__submit Contact us

@@ -1,0 +1,90 @@
+@use "../abstracts/vars/colors" as c;
+@use "../abstracts/mixins/pseudoelement" as *;
+
+.extension-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.7rem;
+  box-shadow: 0 8px 15px rgba(c.$soft-blue, 0.2);
+  width: 280px;
+  height: 325px;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 275px;
+    transition: transform 0.2s;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  &::after{
+    @include pseudo-element;
+    content: url("../../assets/images/bg-dots.svg");
+    top: 225px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:nth-child(2){
+    @media screen and (min-width: 768px) {
+        justify-self: start;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin-top: 40px;
+    }
+  }
+
+
+  &:nth-child(3){
+    @media screen and (min-width: 1024px) {
+      margin-top: 75px;
+    }
+  }
+
+
+  &__logo{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title{
+    color: c.$very-dark-blue;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  &__text{
+    color: c.$grayish-blue;
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+
+  &__link{
+    display: grid;
+    place-items: center;
+    width: 90%;
+    height: 50px;
+    background-color: c.$soft-blue;
+    color: #fff;
+    margin-top: 3rem;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    text-decoration: none;
+
+    @media screen and (min-width: 768px) {
+      transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+      &:hover{
+        border-color: c.$soft-blue;
+        background-color: #F7F7F7;
+        color: c.$soft-blue;
+      }
+    }
+  }
+}

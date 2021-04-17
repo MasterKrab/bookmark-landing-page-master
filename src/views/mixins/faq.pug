@@ -1,0 +1,7 @@
+mixin faq(question, answer)
+    details.faq
+        summary.faq__question
+            =question
+            svg.faq__arrow(xmlns="http://www.w3.org/2000/svg" width="18" height="12")
+                path.faq__path(fill="none" stroke="#5267DF" stroke-width="3" d="M1 1l8 8 8-8")
+        p.faq__answer= answer

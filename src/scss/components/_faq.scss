@@ -1,0 +1,54 @@
+@use "../abstracts/vars/colors" as c;
+@use "../abstracts/mixins/pseudoelement" as *;
+
+.faq{
+  border-bottom: 1px solid #DDE0E7;
+  padding: 20px;
+  text-align: start;
+
+  &:first-child {
+    border-top: 1px solid #DDE0E7;
+  }
+
+  &__question{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    color: c.$very-dark-blue;
+
+    &::marker {
+      content: "";
+    }
+
+    @media screen and (min-width: 768px) {
+      &:hover{
+        color: c.$soft-red;
+
+        .faq__path{
+          stroke: c.$soft-red;
+        }
+      }
+    }
+  }
+
+  .faq__arrow{
+    transition: transform 0.5s;
+  }
+
+  &[open]{
+    .faq__arrow{
+      transform: rotate(-180deg);
+    }
+
+    .faq__path{
+      stroke: c.$soft-red;
+    }
+  }
+
+  &__answer{
+    color: c.$grayish-blue;
+    margin-top: 40px;
+    line-height: 2;
+  }
+}

@@ -165,7 +165,7 @@
 
     @media screen and (max-width: 769px) {
       border-bottom: 1px solid #4C526C;
-      padding: 25px;
+      padding: 25px 0;
       font-size: 1.3rem;
 
       &:first-child{
@@ -185,6 +185,7 @@
 
   &__link--login{
     @media screen and (max-width: 769px) {
+      display: block;
       margin-top: 25px;
       padding: 10px;
       border: 2px solid #fff;

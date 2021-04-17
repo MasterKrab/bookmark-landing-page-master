@@ -4,6 +4,7 @@
 @use "../abstracts/mixins/box-ps" as *;
 @use "../abstracts/mixins/text" as *;
 @use "../abstracts/mixins/info-link" as *;
+@use "../abstracts/mixins/outline" as *;
 
 .features,
 .feature{
@@ -63,12 +64,18 @@
     padding: 20px;
     width: 100%;
 
-    @media screen and (min-width: 1024px) {
-      padding: 0 0 30px;
+    @media screen and (min-width: 768px) {
+      padding: 0;
+      margin-bottom: 30px;
 
       &:hover{
         color: c.$soft-red;
       }
+    }
+
+    &:focus{
+      outline: 4px dashed c.$soft-red;
+      outline-offset: 0.5rem;
     }
 
     &::after{

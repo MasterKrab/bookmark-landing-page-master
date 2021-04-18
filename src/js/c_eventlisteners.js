@@ -38,11 +38,7 @@ featuresList.addEventListener("click", e =>{
         const featureImage = featureResult.querySelector(".feature__image")
         const featureCard = featureResult.querySelector(".feature__card");
 
-        featureImage.addEventListener("animationend", () =>{
-            console.log(featureResult)
-
-            changeFeature(e.target.dataset.id);
-        });
+        featureImage.addEventListener("animationend", () => changeFeature(e.target.dataset.id));
 
         featureImage.classList.add("feature__image--hidden");
         featureCard.classList.add("feature__card--hidden");

@@ -15,13 +15,13 @@ form.addEventListener("submit", e =>{
     if(validateEmail(form.email.value)){
         form.firstElementChild.classList.remove("contact__input--error");
         form.email.classList.remove("contact__email--error")
-        form.email.ariaInvalid = true;
+        form.email.ariaInvalid = false;
         form.reset();
     }else{
         form.firstElementChild.classList.add("contact__input--error");
         form.email.classList.add("contact__email--error")
         form.firstElementChild.dataset.error = "Whoops, make sure it's an email"
-        form.email.ariaInvalid = false;
+        form.email.ariaInvalid = true;
     }
 
     if(!form.email.value.trim().length > 0)

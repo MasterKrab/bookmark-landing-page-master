@@ -121,16 +121,13 @@
       justify-content: space-between;
       text-align: center;
 
-      &--hidden,
-      &--active{
-        display: flex;
-      }
-
       &--hidden{
+        display: none;
         animation: opacity-reverse 1 0.5s forwards;
       }
 
       &--active{
+        display: flex;
         animation: opacity 1 0.5s;
       }
     }
